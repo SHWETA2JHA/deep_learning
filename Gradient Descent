@@ -1,0 +1,12 @@
+import numpy as np
+
+def gradient_descent(X, y, learning_rate, num_iterations):
+    num_samples, num_features = X.shape
+    theta = np.zeros(num_features) 
+    for _ in range(num_iterations):
+   
+        y_pred = np.dot(X, theta)
+        gradient = np.dot(X.T, (y_pred - y)) / num_samples
+        theta -= learning_rate * gradient
+
+    return theta
